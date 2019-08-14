@@ -1,0 +1,7 @@
+.latest-twitter-block li { padding: 5px 10px; font-size: 11px; }
+.latest-twitter-block li span { display: block; font-weight: bold; }
+.latest-twitter-block { width:100%; float:left }
+.footerVivatweets { text-align:left !important; }
+.tweetHover { text-decoration:none !important; }
+.tweetHover:hover{ text-decoration:underline !important; }
+.tweetSeprator { border-bottom:1px dashed #DDDDDD; padding-bottom:5px; }
