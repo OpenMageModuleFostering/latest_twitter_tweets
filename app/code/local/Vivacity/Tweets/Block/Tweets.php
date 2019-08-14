@@ -132,11 +132,10 @@ class Vivacity_Tweets_Block_Tweets extends Mage_Core_Block_Template
 		$t = array();
 		$i = 0;
 
-//echo "<pre>";
-//print_r($tweets);
-//exit;
+
 		foreach($tweets as $tweet)
-		{	
+                    
+		{
 			$text = $tweet->text;
 			$urls = $tweet->entities->urls;
 			$mentions = $tweet->entities->user_mentions;
@@ -167,6 +166,7 @@ class Vivacity_Tweets_Block_Tweets extends Mage_Core_Block_Template
 			$t[$i]["user_image"] = $tweet->user->profile_image_url;
 			$t[$i]["tweet"] = trim($this->changeLink($text, $this->getTagPref(), $this->getNoFollow(), $this->getNewWindow()));	
 			$t[$i]["time"] = trim($this->getTimeAgo($tweet->created_at));
+                        $t[$i]["url"] = $tweet->entities->media[0]->media_url;
 			$i++;
 		}
 		return $t;
