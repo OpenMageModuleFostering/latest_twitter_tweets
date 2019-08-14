@@ -1,13 +1,12 @@
 <?php
-class Vivacity_Tweets_Model_Layout
+class Vivacity_Tweets_Model_Theme
 {
  
      public function toOptionArray()
          {
 			$option  = array(
-			"none"=>'None',
-			"left"=>'Left Column',			
-			"right"=>'Right Column');
+			"light"=>'Light',			
+			"dark"=>'Dark');
 			return $option;  
 	     }
 

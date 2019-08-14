@@ -2,7 +2,7 @@
 <config>
   <modules>
     <Vivacity_Tweets>
-      <version>1.0.1</version>
+      <version>1.0.2</version>
     </Vivacity_Tweets>
   </modules>
 <frontend>
@@ -94,5 +94,12 @@
         </admin>
       </resources>
     </acl>
+    <layout>
+   	<updates>
+    		<basket>
+     			<file>tweets.xml</file>
+    		</basket>
+   	</updates>
+  </layout>
   </adminhtml>
 </config>

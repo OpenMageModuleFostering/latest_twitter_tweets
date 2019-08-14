@@ -1,13 +1,17 @@
-<?php  $this->getSkinUrl('css/font-awesome.css'); ?>
+<?php  $this->getSkinUrl('css/vivacity_tweets.css'); ?>
 <?php  $this->getSkinUrl('css/font-awesome.min.css'); ?>
 <?php if($this->isEnabled() && $tweets = $this->getLatestTweets()): ?>
+<?php $username = Mage::getStoreConfig('tweets/twittersettings/twitterid'); ?>
+<?php $theme = Mage::getStoreConfig('tweets/displaysettings/block_theme'); ?>
+<?php $avatar_image = Mage::getStoreConfig('tweets/displaysettings/circular_image'); ?>
+<?php $block_title = Mage::getStoreConfig('tweets/displaysettings/block_title'); ?>
 <div class="block latest-twitter-block">
 	<div class="block-title">
         <strong>
-            <span><i class="fa fa-twitter"></i>&nbsp;Our Latest Tweets</span>
+                        <span><i class="fa fa-twitter"></i><a class="latest-twitter-head" target="_blank" href="<?php echo 'https://twitter.com/'.$username; ?>">&nbsp;<?php if($block_title) { echo $block_title; } else { ?>Our Latest Tweets <?php } ?></a></span>
         </strong>
     </div>
-    <div class="block-content">
+    <div class="block-content <?php if($theme=='light') { echo 'light'; } else { echo 'dark'; } ?>">
     	<ul>
 		<?php
 //echo "<pre>";
@@ -15,14 +19,20 @@
  foreach($tweets as $tweet): ?>
         	<li>
 <p>
-<img src="<?php echo $tweet['user_image']; ?>" class="user-avatar" alt="Vivacity Infotech" height="32" width="32" align="left">
-<span style="float:left;padding-left:5px;"><?php echo (string) trim($tweet["user_name"]); ?><br/><?php echo $tweet["screen_name"]; ?></span></p>
-<p style="clear:both;padding-top:2px;">
+            <?php if(Mage::getStoreConfig('tweets/displaysettings/show_image')) { ?>
+<img src="<?php echo $tweet['user_image']; ?>" class="user-avatar <?php if($avatar_image){ echo 'circular'; } ?>" alt="<?php echo $tweet['user_name']; ?>" height="40" width="40" align="left">
+<?php } ?>  
+            <?php if(Mage::getStoreConfig('tweets/displaysettings/show_name')) { ?>
+<span style="float:left;padding-left:5px;"><?php echo (string) trim($tweet["user_name"]); ?><br/><?php echo $tweet["screen_name"]; ?></span>
+<?php } ?>  
+</p>
+
+<p class="tweet-data">
 				<?php echo (string) trim($tweet["tweet"]); ?></p>
                                 <?php   if(isset($tweet["url"]) && !empty($tweet["url"])){ ?>
                                 <img src="<?php echo $tweet["url"] ?>" >
                                 <?php } ?>
-				<span class="tweetSeprator"> - <?php echo (string) trim($tweet["time"]); ?></span>
+				<span class="tweetSeprator"> - <?php echo date('H:i \o\n d/m/Y', strtotime($tweet["time"]));//echo (string) trim($tweet["time"]); ?></span>
 
             	</li>
         <?php endforeach; ?>
