@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Latest_Twitter_Tweets",
+    "name": "OpenMageModuleFostering\/Latest_Twitter_Tweets",
     "type": "magento-module",
     "license": "OSL-v3.0",
     "homepage": "",
     "description": "Latest Tweets for your Magento store featuring with new oAuth standards for Twitter API 1.1",
     "authors": [
-    {
-        "name": "Team Vivacity",
-        "email": "vivacityinfotech.jaipur@gmail.com"
-    }
-],
+        {
+            "name": "Team Vivacity",
+            "email": "vivacityinfotech.jaipur@gmail.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
